@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-password',
@@ -7,11 +7,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PasswordComponent implements OnInit {
 
-  _pwd: string;
+  private _pwd: string;
 
-  @Input() set pwd(value) {
-    this._pwd = value;
+  @Input() get pwd() {
+    return this._pwd;
   }
+
+  @Output() pwdChange = new EventEmitter();
+  set pwd(val) {
+    this._pwd = val;
+    this.pwdChange.emit(this._pwd);
+  }
+
 
   constructor() { }
 
