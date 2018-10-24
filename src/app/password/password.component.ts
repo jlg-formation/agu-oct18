@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-password',
@@ -12,6 +12,7 @@ export class PasswordComponent implements OnInit {
   private _state = 'hidden';
 
   faEye = faEye;
+  faEyeSlash = faEyeSlash;
 
   @Input() get pwd() {
     return this._pwd;
