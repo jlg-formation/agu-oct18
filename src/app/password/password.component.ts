@@ -32,6 +32,10 @@ export class PasswordComponent implements OnInit {
     return this._state === 'visible';
   }
 
+  isHidden() {
+    return this._state === 'hidden';
+  }
+
 
   constructor() { }
 
