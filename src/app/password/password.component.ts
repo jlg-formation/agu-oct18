@@ -7,7 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PasswordComponent implements OnInit {
 
-  @Input() pwd: string;
+  _pwd: string;
+
+  @Input() set pwd(value) {
+    this._pwd = value;
+  }
 
   constructor() { }
 
