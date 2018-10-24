@@ -8,11 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class PasswordComponent implements OnInit {
 
   private _pwd: string;
-  state = 'hidden';
-
-  setState(state) {
-    this.state = state;
-  }
+  private _state = 'hidden';
 
   @Input() get pwd() {
     return this._pwd;
@@ -22,6 +18,10 @@ export class PasswordComponent implements OnInit {
   set pwd(val) {
     this._pwd = val;
     this.pwdChange.emit(this._pwd);
+  }
+
+  setState(state) {
+    this._state = state;
   }
 
 
