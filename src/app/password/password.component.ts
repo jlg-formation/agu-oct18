@@ -11,6 +11,8 @@ export class PasswordComponent implements OnInit {
   private _pwd: string;
   private _state = 'hidden';
 
+  @Input() mode = 'microsoft';
+
   faEye = faEye;
   faEyeSlash = faEyeSlash;
 
@@ -36,6 +38,9 @@ export class PasswordComponent implements OnInit {
     return this._state === 'hidden';
   }
 
+  toggle() {
+    this._state = this._state === 'hidden' ? 'visible' : 'hidden';
+  }
 
   constructor() { }
 
