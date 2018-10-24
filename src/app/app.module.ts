@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NirComponent } from './nir/nir.component';
 import { NirFormatPipe } from './nir-format.pipe';
+import { PasswordComponent } from './password/password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NirComponent,
-    NirFormatPipe
+    NirFormatPipe,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,
