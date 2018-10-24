@@ -5,10 +5,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NirFormatPipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
+  transform(value: string, args?: any): any {
     console.log('value', value);
     console.log('args', args);
-    return '1 74 05 54 395 279 (83)';
+    const result = value.substr(0, 1) + ' ' +
+      value.substr(1, 2) + ' ' +
+      value.substr(3, 2) + ' ' +
+      value.substr(5, 2) + ' ' +
+      value.substr(7, 3) + ' ' +
+      value.substr(10, 3) + ' (' +
+      value.substr(13, 2) + ')';
+    return result;
   }
 
 }
