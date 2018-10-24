@@ -6,8 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class NirFormatPipe implements PipeTransform {
 
   transform(value: string, args?: any): any {
-    console.log('value', value);
-    console.log('args', args);
     const result = value.substr(0, 1) + ' ' +
       value.substr(1, 2) + ' ' +
       value.substr(3, 2) + ' ' +
