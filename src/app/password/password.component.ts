@@ -24,6 +24,10 @@ export class PasswordComponent implements OnInit {
     this._state = state;
   }
 
+  isVisible() {
+    return this._state === 'visible';
+  }
+
 
   constructor() { }
 
