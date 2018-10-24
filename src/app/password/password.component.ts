@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PasswordComponent implements OnInit {
 
   @Input() pwd: string;
+
   constructor() { }
 
   ngOnInit() {
