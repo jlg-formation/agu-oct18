@@ -6,26 +6,32 @@ import { Observable, Observer } from 'rxjs';
 })
 export class TableService {
 
+  start = 0;
+  end = 15;
+  increment = 10;
 
   table: any[];
 
   constructor() {
     console.log('table service');
-    this.table = new Array(50)
+    this.table = new Array(1000)
       .fill(0)
-      .map((n, i) => ({id: i, login: `login du id ${i}`}));
+      .map((n, i) => ({ id: i, login: `login du id ${i}` }));
   }
 
   init(): any {
     return Observable.create((observer: Observer<any>) => {
-      observer.next(this.table.filter((n, i) => i < 10));
+      observer.next(this.table.filter((n, i) => i < this.end));
       observer.complete();
     });
   }
 
   getMore(): any {
     return Observable.create((observer: Observer<any>) => {
-      const records = this.table.filter((n, i) => i >= 10 && i < 20);
+      this.start = this.end;
+      this.end += this.increment;
+      const records = this.table
+        .filter((n, i) => i >= this.start && i < this.end);
 
       console.log('getMore', records);
       observer.next(records);

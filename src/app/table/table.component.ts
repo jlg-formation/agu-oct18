@@ -21,9 +21,19 @@ export class TableComponent implements OnInit {
   records: any[];
 
   @HostListener('window:scroll', ['$event']) onScroll(event) {
-    console.log('scroll', event);
+
     event.preventDefault();
-    this.tableService.getMore().subscribe(records => this.records.push(...records));
+    if (bottomReached()) {
+      console.log('scroll bootom reached', event);
+      this.tableService.getMore()
+        .subscribe(records => this.records.push(...records));
+    }
+
+    function bottomReached() {
+      return (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
+    }
+
+
   }
 
   constructor(private tableService: TableService) { }
