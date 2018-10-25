@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { NirComponent } from './nir/nir.component';
 import { NirFormatPipe } from './nir-format.pipe';
 import { PasswordComponent } from './password/password.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NirComponent,
     NirFormatPipe,
-    PasswordComponent
+    PasswordComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
