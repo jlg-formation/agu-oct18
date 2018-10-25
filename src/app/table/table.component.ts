@@ -9,6 +9,8 @@ import { config } from 'rxjs';
 export class TableComponent implements OnInit {
 
   @Input() cfg;
+
+  headers = ['id', 'login'];
   constructor() { }
 
   ngOnInit() {
