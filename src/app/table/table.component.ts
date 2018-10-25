@@ -20,8 +20,8 @@ export class TableComponent implements OnInit {
 
   records: any[];
 
-  @HostListener('mousedown', ['$event']) onMouseDown(event) {
-    console.log('mousedown', event);
+  @HostListener('window:scroll', ['$event']) onScroll(event) {
+    console.log('scroll', event);
     event.preventDefault();
 
   }
