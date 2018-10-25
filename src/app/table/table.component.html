@@ -1,8 +1,8 @@
 <table>
   <tr>
-    <th *ngFor="let h of cfg.fields">{{h}}</th>
+    <th *ngFor="let field of cfg.fields">{{field}}</th>
   </tr>
   <tr *ngFor="let record of records">
-    <td *ngFor="let h of cfg.fields">{{record[h]}}</td>
+    <td *ngFor="let field of cfg.fields">{{record[field]}}</td>
   </tr>
 </table>
