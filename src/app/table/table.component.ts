@@ -14,12 +14,11 @@ export interface AppTableConfig {
 })
 export class TableComponent implements OnInit {
 
-  @Input() cfg;
-
-  headers = ['id', 'login'];
+  @Input() cfg: AppTableConfig;
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
