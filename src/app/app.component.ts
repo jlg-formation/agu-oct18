@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-
-interface AppTableConfig {
-  hateoas: string;
-  src: string;
-  fields: any[];
-}
+import { AppTableConfig } from './table/table.component';
 
 @Component({
   selector: 'app-root',

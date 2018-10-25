@@ -1,6 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { config } from 'rxjs';
 
+export interface AppTableConfig {
+  hateoas: string;
+  src: string;
+  fields: any[];
+}
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
