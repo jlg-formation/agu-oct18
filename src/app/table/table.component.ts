@@ -8,6 +8,7 @@ export interface AppTableConfig {
   fields: any[];
 }
 
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -19,14 +20,24 @@ export class TableComponent implements OnInit {
   @Input() cfg: AppTableConfig;
 
   records: any[];
+  isBusy = false;
 
   @HostListener('window:scroll', ['$event']) onScroll(event) {
+
+
 
     event.preventDefault();
     if (bottomReached()) {
       console.log('scroll bottom reached', event);
+      if (this.isBusy) {
+        return;
+      }
+      this.isBusy = true;
       this.tableService.getMore()
-        .subscribe(records => this.records.push(...records));
+        .subscribe(records => {
+          this.records.push(...records);
+          this.isBusy = false;
+        });
     }
 
     function bottomReached() {

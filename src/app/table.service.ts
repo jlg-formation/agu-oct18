@@ -11,6 +11,7 @@ export class TableService {
   start = 0;
   end = 15;
   increment = 10;
+  link: string;
 
   table: any[];
   cfg: AppTableConfig;
@@ -32,9 +33,9 @@ export class TableService {
         response => {
           observer.next(response.body);
           observer.complete();
-          const link = response.headers.get('Link')
+          this.link = response.headers.get('Link')
             .replace(/^.*<(.*?)>.*<.*$/, '$1');
-          console.log('Link', link);
+          console.log('Link', this.link);
         }
       );
 
@@ -43,14 +44,28 @@ export class TableService {
 
   getMore(): any {
     return Observable.create((observer: Observer<any>) => {
-      this.start = this.end;
-      this.end += this.increment;
-      const records = this.table
-        .filter((n, i) => i >= this.start && i < this.end);
+      this.http.get(this.link, { observe: 'response' }).subscribe(
+        response => {
+          observer.next(response.body);
+          observer.complete();
+          this.link = response.headers.get('Link')
+            .replace(/^.*<(.*?)>.*<.*$/, '$1');
+          console.log('Link', this.link);
+        }
+      );
 
-      console.log('getMore', records);
-      observer.next(records);
-      observer.complete();
+
+
+
+
+      // this.start = this.end;
+      // this.end += this.increment;
+      // const records = this.table
+      //   .filter((n, i) => i >= this.start && i < this.end);
+
+      // console.log('getMore', records);
+      // observer.next(records);
+      // observer.complete();
     });
   }
 }
