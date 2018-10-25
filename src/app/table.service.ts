@@ -17,7 +17,7 @@ export class TableService {
 
   init(): any {
     return Observable.create((observer: Observer<any>) => {
-      observer.next(this.table);
+      observer.next(this.table.filter((n, i) => i < 10));
       observer.complete();
     });
   }
