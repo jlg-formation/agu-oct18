@@ -9,6 +9,7 @@ import { NirComponent } from './nir/nir.component';
 import { NirFormatPipe } from './nir-format.pipe';
 import { PasswordComponent } from './password/password.component';
 import { TableComponent } from './table/table.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TableComponent } from './table/table.component';
     AppRoutingModule,
     FormsModule,
     FontAwesomeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

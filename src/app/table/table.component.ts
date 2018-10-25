@@ -39,6 +39,7 @@ export class TableComponent implements OnInit {
   constructor(private tableService: TableService) { }
 
   ngOnInit() {
+    this.tableService.setCfg(this.cfg)
     this.tableService.init().subscribe(records => this.records = records);
   }
 

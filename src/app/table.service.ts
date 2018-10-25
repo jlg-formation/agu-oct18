@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { AppTableConfig } from './table/table.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TableService {
 
@@ -11,18 +13,28 @@ export class TableService {
   increment = 10;
 
   table: any[];
+  cfg: AppTableConfig;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     console.log('table service');
     this.table = new Array(1000)
       .fill(0)
       .map((n, i) => ({ id: i, login: `login du id ${i}` }));
   }
 
+  setCfg(cfg: AppTableConfig) {
+    this.cfg = cfg;
+  }
+
   init(): any {
     return Observable.create((observer: Observer<any>) => {
-      observer.next(this.table.filter((n, i) => i < this.end));
-      observer.complete();
+      this.http.get(this.cfg.src, { observe: 'response' }).subscribe(
+        response => {
+          observer.next(response.body);
+          observer.complete();
+        }
+      );
+
     });
   }
 
