@@ -32,6 +32,9 @@ export class TableService {
         response => {
           observer.next(response.body);
           observer.complete();
+          const link = response.headers.get('Link')
+            .replace(/^.*<(.*?)>.*<.*$/, '$1');
+          console.log('Link', link);
         }
       );
 
