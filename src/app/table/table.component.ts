@@ -23,7 +23,7 @@ export class TableComponent implements OnInit {
   @HostListener('window:scroll', ['$event']) onScroll(event) {
     console.log('scroll', event);
     event.preventDefault();
-
+    this.tableService.getMore().subscribe(records => this.records.push(...records));
   }
 
   constructor(private tableService: TableService) { }

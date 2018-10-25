@@ -6,6 +6,7 @@ import { Observable, Observer } from 'rxjs';
 })
 export class TableService {
 
+
   table: any[];
 
   constructor() {
@@ -18,6 +19,16 @@ export class TableService {
   init(): any {
     return Observable.create((observer: Observer<any>) => {
       observer.next(this.table.filter((n, i) => i < 10));
+      observer.complete();
+    });
+  }
+
+  getMore(): any {
+    return Observable.create((observer: Observer<any>) => {
+      const records = this.table.filter((n, i) => i >= 10 && i < 20);
+
+      console.log('getMore', records);
+      observer.next(records);
       observer.complete();
     });
   }
