@@ -24,7 +24,7 @@ export class TableComponent implements OnInit {
 
     event.preventDefault();
     if (bottomReached()) {
-      console.log('scroll bootom reached', event);
+      console.log('scroll bottom reached', event);
       this.tableService.getMore()
         .subscribe(records => this.records.push(...records));
     }
