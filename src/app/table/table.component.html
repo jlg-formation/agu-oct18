@@ -2,16 +2,7 @@
   <tr>
     <th *ngFor="let h of cfg.fields">{{h}}</th>
   </tr>
-  <tr>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
+  <tr *ngFor="let record of records">
+    <td *ngFor="let h of cfg.fields">{{record[h]}}</td>
   </tr>
 </table>

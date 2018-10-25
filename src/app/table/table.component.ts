@@ -17,10 +17,13 @@ export interface AppTableConfig {
 export class TableComponent implements OnInit {
 
   @Input() cfg: AppTableConfig;
+
+  records: any[];
+
   constructor(private tableService: TableService) { }
 
   ngOnInit() {
-
+    this.tableService.init().subscribe(records => this.records = records);
   }
 
 }
