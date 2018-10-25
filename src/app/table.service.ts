@@ -8,9 +8,7 @@ import { AppTableConfig } from './table/table.component';
 })
 export class TableService {
 
-  start = 0;
-  end = 15;
-  increment = 10;
+
   link: string;
 
   table: any[];
@@ -53,19 +51,6 @@ export class TableService {
           console.log('Link', this.link);
         }
       );
-
-
-
-
-
-      // this.start = this.end;
-      // this.end += this.increment;
-      // const records = this.table
-      //   .filter((n, i) => i >= this.start && i < this.end);
-
-      // console.log('getMore', records);
-      // observer.next(records);
-      // observer.complete();
     });
   }
 }

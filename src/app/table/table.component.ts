@@ -24,8 +24,6 @@ export class TableComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event']) onScroll(event) {
 
-
-
     event.preventDefault();
     if (bottomReached()) {
       console.log('scroll bottom reached', event);
