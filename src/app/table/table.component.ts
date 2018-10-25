@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { config } from 'rxjs';
 import { TableService } from '../table.service';
 
@@ -19,6 +19,12 @@ export class TableComponent implements OnInit {
   @Input() cfg: AppTableConfig;
 
   records: any[];
+
+  @HostListener('mousedown', ['$event']) onMouseDown(event) {
+    console.log('mousedown', event);
+    event.preventDefault();
+
+  }
 
   constructor(private tableService: TableService) { }
 
