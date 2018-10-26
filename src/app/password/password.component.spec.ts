@@ -26,9 +26,15 @@ describe('PasswordComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should toggle the state', () => {
+  it('should toggle the hidden state', () => {
     component.setState('hidden');
     component.toggle();
     expect(component.isVisible()).toEqual(true);
+  });
+
+  it('should toggle the visible state', () => {
+    component.setState('visible');
+    component.toggle();
+    expect(component.isHidden()).toEqual(true);
   });
 });
