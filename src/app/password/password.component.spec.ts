@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PasswordComponent } from './password.component';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('PasswordComponent', () => {
   let component: PasswordComponent;
@@ -8,6 +10,7 @@ describe('PasswordComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [FormsModule, FontAwesomeModule],
       declarations: [ PasswordComponent ]
     })
     .compileComponents();
@@ -21,5 +24,11 @@ describe('PasswordComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should toggle the state', () => {
+    component.setState('hidden');
+    component.toggle();
+    expect(component.isVisible()).toEqual(true);
   });
 });

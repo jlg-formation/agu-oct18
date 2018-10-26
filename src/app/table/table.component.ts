@@ -3,8 +3,8 @@ import { config } from 'rxjs';
 import { TableService } from '../table.service';
 
 export interface AppTableConfig {
-  hateoas: string;
-  src: string;
+  hateoas?: string;
+  src?: string;
   fields: any[];
 }
 
@@ -17,7 +17,7 @@ export interface AppTableConfig {
 })
 export class TableComponent implements OnInit {
 
-  @Input() cfg: AppTableConfig;
+  @Input() cfg: AppTableConfig = {fields: []};
 
   records: any[];
   isBusy = false;
