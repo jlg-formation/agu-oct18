@@ -25,4 +25,10 @@ describe('TableComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should handle the scroll', () => {
+    component.ngOnInit();
+    component.handleScroll({preventDefault() {}}, window);
+    expect(component).toBeTruthy();
+  });
 });

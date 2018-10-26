@@ -24,6 +24,11 @@ export class TableComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event']) onScroll(event) {
 
+    this.handleScroll(event, window);
+
+  }
+
+  handleScroll(event, window) {
     event.preventDefault();
     if (bottomReached()) {
       console.log('scroll bottom reached', event);
@@ -41,7 +46,6 @@ export class TableComponent implements OnInit {
     function bottomReached() {
       return (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
     }
-
 
   }
 
