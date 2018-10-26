@@ -1,16 +1,32 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { NirComponent } from './nir/nir.component';
+import { PasswordComponent } from './password/password.component';
+import { TableComponent } from './table/table.component';
+import { NirFormatPipe } from './nir-format.pipe';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TableService } from './table.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        FormsModule,
+        FontAwesomeModule,
+        HttpClientModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        NirComponent,
+        PasswordComponent,
+        TableComponent,
+        NirFormatPipe
       ],
+      providers: [],
     }).compileComponents();
   }));
 

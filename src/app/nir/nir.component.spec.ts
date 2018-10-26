@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NirComponent } from './nir.component';
+import { NirFormatPipe } from '../nir-format.pipe';
 
 describe('NirComponent', () => {
   let component: NirComponent;
@@ -8,7 +9,8 @@ describe('NirComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NirComponent ]
+      declarations: [ NirComponent,
+      NirFormatPipe ]
     })
     .compileComponents();
   }));
